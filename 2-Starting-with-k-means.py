@@ -13,7 +13,7 @@ from sklearn import metrics
 # Exemple :  k-Means Clustering
 
 path = './artificial/'
-name="birch-rg3.arff"
+name="R15.arff"
 
 #path_out = './fig/'
 databrut = arff.loadarff(open(path+str(name), 'r'))
@@ -62,8 +62,8 @@ for k in range(1, 50):
     inertias.append(inertie)
 
     # Calculate the silhouette score and append it
-    if k > 1:
-        silhouette_scores.append(metrics.silhouette_score(datanp, labels))
+    #if k > 1:
+    #    silhouette_scores.append(metrics.silhouette_score(datanp, labels))
 
     # Scatter plot of the clustering result
     #plt.scatter(f0, f1, c=labels, s=8)
@@ -79,8 +79,8 @@ for k in range(1, 50):
 
 # Plot the relation between number of clusters and runtime
 plt.figure(figsize=(8, 6))
-plt.plot(range(2, 50), runtimes[1:50], marker='o')
-plt.plot(range(2, 50), runtimesMini[1:50], marker='o')
+plt.plot(range(2, 50), runtimes[1:50], marker='o', color="blue")
+plt.plot(range(2, 50), runtimesMini[1:50], marker='o', color="red")
 plt.title("Relation entre le nombre de clusters et le temps de calcul")
 plt.xlabel("Nombre de clusters")
 plt.ylabel("Temps de calcul")
